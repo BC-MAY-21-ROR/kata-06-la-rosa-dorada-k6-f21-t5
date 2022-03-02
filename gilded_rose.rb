@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Class 
+# Class
 class GildedRose
   def initialize(items)
     @items = items
@@ -8,47 +8,44 @@ class GildedRose
 
   def normal_item(item)
     if item.quality.positive?
-      item.quality = if item.sell_in.positive? || item.quality == 1
-                       item.quality - 1
-                     else
-                       item.quality - 2 
-                     end
-    else
-      item.quality = 0
+      item.quality -= item.sell_in.positive? || item.quality == 1 ? 1 : 2
     end
   end
 
+  def upgrade_quality(item)
+    item.quality += 1 if item.quality < 50
+  end
+
   def backstage_quality(item)
-    if item.quality < 50
-      item.quality += 1
-      item.quality += 1 if item.sell_in < 11 && item.quality < 50
-      item.quality += 1 if item.sell_in < 6 && item.quality < 50
-    end
+    upgrade_quality(item)
+    upgrade_quality(item) if item.sell_in < 11
+    upgrade_quality(item) if item.sell_in < 6
     item.quality = 0 if item.sell_in <= 0
   end
 
   def aged_brie_quality(item)
-    if item.quality < 50
-      item.quality += 1
-      item.quality += 1 if item.sell_in <= 0 && item.quality < 50
-    end
+    upgrade_quality(item)
+    upgrade_quality(item) if item.sell_in <= 0
   end
 
   def update_quality
     @items.each do |item|
       next if item.name == 'Sulfuras, Hand of Ragnaros'
-
-      case item.name
-      when 'Aged Brie' then aged_brie_quality(item)
-      when 'Backstage passes to a TAFKAL80ETC concert' then backstage_quality(item)
-      else
-        normal_item(item)
-      end
+      update_quality_cases(item)
       item.sell_in = item.sell_in - 1
+    end
+  end
+
+  def update_quality_cases(item)
+    case item.name
+    when 'Aged Brie' then aged_brie_quality(item)
+    when 'Backstage passes to a TAFKAL80ETC concert' then backstage_quality(item)
+    else normal_item(item)
     end
   end
 end
 
+# Class
 class Item
   attr_accessor :name, :sell_in, :quality
 
@@ -62,17 +59,3 @@ class Item
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 end
-
-
-
-# -------- day 0 --------
-# name, sellIn, quality
-# +5 Dexterity Vest, 10, 20
-# Aged Brie, 2, 0
-# Elixir of the Mongoose, 5, 7
-# Sulfuras, Hand of Ragnaros, 0, 80
-# Sulfuras, Hand of Ragnaros, -1, 80
-# Backstage passes to a TAFKAL80ETC concert, 15, 20
-# Backstage passes to a TAFKAL80ETC concert, 10, 49
-# Backstage passes to a TAFKAL80ETC concert, 5, 49
-# Conjured Mana Cake, 3, 6
