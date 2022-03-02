@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="assets/vendor/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="assets/vendor/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="assets/vendor/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="overview.html"><img src="assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="simple_cov_index.html" class="project-nav-item coverage-index-nav"><i class="fa fa-umbrella"></i>Coverage</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2022-03-01 18:13:59 -0600'>2022-03-01 18:13:59 -0600</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>. /</small> gilded_rose.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">74</span><small> lines of codes</small></div>
+              <div><span class="metric">9</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">5.4</span><small> complexity/method</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">48.84</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                14
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
+
+# Class
+class GildedRose<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>GildedRose has no descriptive comment</span>          </div>  </li></ol>
+  def initialize(items)
+    @items = items
+  end
+
+  def normal_item(item)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>GildedRose#normal_item doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    if item.quality.positive?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#normal_item calls 'item.quality' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L10" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L11" class="js-smell-location">1</a>                  </div>  </li></ol>
+      item.quality -= item.sell_in.positive? || item.quality == 1 ? 1 : 2<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#normal_item calls 'item.quality' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L10" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L11" class="js-smell-location">1</a>                  </div>  </li></ol>
+    end
+  end
+
+  def upgrade_quality(item)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>GildedRose#upgrade_quality doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    item.quality += 1 if item.quality &lt; 50<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#upgrade_quality calls 'item.quality' 2 times</span>          </div>  </li></ol>
+  end
+
+  def backstage_quality(item)
+    upgrade_quality(item)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'upgrade_quality(item)' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L20" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L21" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">2</a>                  </div>  </li></ol>
+    upgrade_quality(item) if item.sell_in &lt; 11<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'item.sell_in' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'upgrade_quality(item)' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L20" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L21" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>GildedRose#backstage_quality refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li></ol>
+    upgrade_quality(item) if item.sell_in &lt; 6<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'item.sell_in' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'upgrade_quality(item)' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L20" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L21" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>GildedRose#backstage_quality refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li></ol>
+    item.quality = 0 if item.sell_in &lt;= 0<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#backstage_quality calls 'item.sell_in' 3 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>GildedRose#backstage_quality refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L21" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L22" class="js-smell-location">1</a>                  <a href="gilded_rose.html#L23" class="js-smell-location">2</a>                  </div>  </li></ol>
+  end
+
+  def aged_brie_quality(item)
+    upgrade_quality(item)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#aged_brie_quality calls 'upgrade_quality(item)' 2 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L27" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L28" class="js-smell-location">1</a>                  </div>  </li></ol>
+    upgrade_quality(item) if item.sell_in &lt;= 0<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>GildedRose#aged_brie_quality calls 'upgrade_quality(item)' 2 times</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L27" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L28" class="js-smell-location">1</a>                  </div>  </li></ol>
+  end
+
+  def update_quality
+    @items.each do |item|
+      next if item.name == &#39;Sulfuras, Hand of Ragnaros&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>GildedRose#update_quality refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L33" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
+
+      update_quality_cases(item)
+      item.sell_in = item.sell_in - 1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>GildedRose#update_quality refers to 'item' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="gilded_rose.html#L33" class="js-smell-location">0</a>                  <a href="gilded_rose.html#L36" class="js-smell-location">1</a>                  </div>  </li></ol>
+    end
+  end
+
+  def update_quality_cases(item)
+    case item.name
+    when &#39;Aged Brie&#39; then aged_brie_quality(item)
+    when &#39;Backstage passes to a TAFKAL80ETC concert&#39; then backstage_quality(item)
+    else normal_item(item)
+    end
+  end
+end
+
+# Class
+class Item<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Item has no descriptive comment</span>          </div>  </li></ol>
+  attr_accessor :name, :sell_in, :quality<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#name is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#quality is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#sell_in is a writable attribute</span>          </div>  </li></ol>
+
+  def initialize(name, sell_in, quality)
+    @name = name
+    @sell_in = sell_in
+    @quality = quality
+  end
+
+  def to_s
+    &quot;#{@name}, #{@sell_in}, #{@quality}&quot;
+  end
+end
+
+# -------- day 0 --------
+# name, sellIn, quality
+# +5 Dexterity Vest, 10, 20
+# Aged Brie, 2, 0
+# Elixir of the Mongoose, 5, 7
+# Sulfuras, Hand of Ragnaros, 0, 80
+# Sulfuras, Hand of Ragnaros, -1, 80
+# Backstage passes to a TAFKAL80ETC concert, 15, 20
+# Backstage passes to a TAFKAL80ETC concert, 10, 49
+# Backstage passes to a TAFKAL80ETC concert, 5, 49
+# Conjured Mana Cake, 3, 6
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src="assets/vendor/javascripts/jquery.min.js"></script>
+    <script src="assets/vendor/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="assets/vendor/javascripts/jquery.scrollTo.min.js"></script>
+    <script src="assets/vendor/javascripts/jquery.timeago.js"></script>
+    <script src="assets/vendor/javascripts/highcharts.src-4.0.1.js"></script>
+    <script src="assets/vendor/javascripts/prettify.js"></script>
+    <script src="assets/vendor/javascripts/bootstrap.min.js"></script>
+    <script src="assets/javascripts/application.js"></script>
+    <script src="assets/vendor/javascripts/jquery.filtertable.min.js"></script>
+  </body>
+</html>
