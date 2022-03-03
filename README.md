@@ -3,6 +3,13 @@
 # Kata Gilded Rose Refactoring
 ![cover](img/cover.jpg)
 
+# Refactoring
+App review points
+[![RubyCritic](badges/app_badge.svg)]
+
+Spec review points
+[![RubyCritic](badges/spec_badge.svg)]
+
 ## Pre-requisitos
 Para evaluar tu código e identificar posibles mejoras debes instalar y utilizar las siguientes herramientas:
 
