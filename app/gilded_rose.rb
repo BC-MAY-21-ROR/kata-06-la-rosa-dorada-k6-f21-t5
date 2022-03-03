@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative './item.rb'
 
 # Class
 class GildedRose
@@ -49,20 +50,5 @@ class GildedRose
     when 'Backstage passes to a TAFKAL80ETC concert' then backstage_quality(item)
     else conjured_item?(item)
     end
-  end
-end
-
-# Class
-class Item
-  attr_accessor :name, :sell_in, :quality
-
-  def initialize(name, sell_in, quality)
-    @name = name
-    @sell_in = sell_in
-    @quality = quality
-  end
-
-  def to_s
-    "#{@name}, #{@sell_in}, #{@quality}"
   end
 end

@@ -1,6 +1,7 @@
 #!/usr/bin/ruby -w
 # frozen_string_literal: true
 require_relative './gilded_rose'
+require_relative './item'
 #require File.join(File.dirname(__FILE__), 'gilded_rose')
 
 puts 'OMGHAI!'
