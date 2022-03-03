@@ -52,7 +52,7 @@
       </span>
     </div>
     <div>
-      <h3><small>app /</small> texttest_fixture.rb</h3>
+      <h3><small>app /</small> item.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">33</span><small> lines of codes</small></div>
-              <div><span class="metric">0</span><small> methods</small></div>
+              <div><span class="metric">16</span><small> lines of codes</small></div>
+              <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">N/A</span><small> complexity/method</small></div>
-              <div><span class="metric">2</span><small> churn</small></div>
+              <div><span class="metric">1.5</span><small> complexity/method</small></div>
+              <div><span class="metric">1</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">0.0</span><small> complexity</small></div>
+              <div><span class="metric">3.0</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -88,8 +88,8 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                0
-                smell
+                4
+                smells
               </a>
             </li>
           </ul>
@@ -97,38 +97,21 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">#!/usr/bin/ruby -w
-# frozen_string_literal: true
-require_relative &#39;./gilded_rose&#39;
-require_relative &#39;./item&#39;
-#require File.join(File.dirname(__FILE__), &#39;gilded_rose&#39;)
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># frozen_string_literal: true
 
-puts &#39;OMGHAI!&#39;
-items = [
-  Item.new(name = &#39;+5 Dexterity Vest&#39;, sell_in = 10, quality = 20),
-  Item.new(name = &#39;Aged Brie&#39;, sell_in = 2, quality = 0),
-  Item.new(name = &#39;Elixir of the Mongoose&#39;, sell_in = 5, quality = 7), #7
-  Item.new(name = &#39;Sulfuras, Hand of Ragnaros&#39;, sell_in = 0, quality = 80),
-  Item.new(name = &#39;Sulfuras, Hand of Ragnaros&#39;, sell_in = -1, quality = 80),
-  Item.new(name = &#39;Backstage passes to a TAFKAL80ETC concert&#39;, sell_in = 15, quality = 20),
-  Item.new(name = &#39;Backstage passes to a TAFKAL80ETC concert&#39;, sell_in = 10, quality = 49),
-  Item.new(name = &#39;Backstage passes to a TAFKAL80ETC concert&#39;, sell_in = 5, quality = 49),
-  # This Conjured item does not work properly yet
-  Item.new(name = &#39;Conjured Mana Cake&#39;, sell_in = 3, quality = 6) # &lt;-- :O
-]
+# Class
+class Item<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Item has no descriptive comment</span>          </div>  </li></ol>
+  attr_accessor :name, :sell_in, :quality<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#name is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#quality is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Item#sell_in is a writable attribute</span>          </div>  </li></ol>
 
-days = 4
-days = ARGV[0].to_i + 1 if ARGV.size.positive?
-
-gilded_rose = GildedRose.new items
-(0...days).each do |day|
-  puts &quot;-------- day #{day} --------&quot;
-  puts &#39;name, sellIn, quality&#39;
-  items.each do |item|
-    puts item
+  def initialize(name, sell_in, quality)
+    @name = name
+    @sell_in = sell_in
+    @quality = quality
   end
-  puts &#39;&#39;
-  gilded_rose.update_quality
+
+  def to_s
+    &quot;#{@name}, #{@sell_in}, #{@quality}&quot;
+  end
 end
 </code>
   </div>
